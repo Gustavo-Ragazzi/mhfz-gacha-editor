@@ -1,61 +1,62 @@
-import { styled } from "@mui/material/styles";
-import { GiClover } from "react-icons/gi";
-import { IoSettingsSharp, IoCash } from "react-icons/io5"
-import { PiStepsFill } from "react-icons/pi";
+import { styled } from '@mui/material/styles';
+import { GiClover } from 'react-icons/gi';
+import { IoSettingsSharp, IoCash } from 'react-icons/io5'
+import { PiStepsFill } from 'react-icons/pi';
+import { Link } from 'react-router-dom';
 
-const StyledHeaderContainer = styled("header")(({ theme }) => ({
-  display: "flex",
-  flexDirection: "column",
-  justifyContent: "space-between",
-  width: "200px",
-  minWidth: "200px",
+const StyledHeaderContainer = styled('header')(({ theme }) => ({
+  display: 'flex',
+  flexDirection: 'column',
+  justifyContent: 'space-between',
+  width: '200px',
+  minWidth: '200px',
   backgroundColor: theme.palette.background.paper,
 
   a: {
-    textDecoration: "none",
+    textDecoration: 'none',
     color: theme.palette.text.secondary,
   },
 }));
 
-const StyledDiv = styled("div")(({ theme }) => ({
-  display: "flex",
-  flexDirection: "column",
+const StyledDiv = styled('div')(({ theme }) => ({
+  display: 'flex',
+  flexDirection: 'column',
 }))
 
-const OptionContainer = styled("div")(({ theme }) => ({
-  display: "flex",
-  alignItems: "center",
-  justifyContent: "space-between",
+const OptionContainer = styled('div')(({ theme }) => ({
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'space-between',
   paddingLeft: theme.spacing(1),
   paddingRight: theme.spacing(1),
   color: theme.palette.text.secondary,
-  height: "2em",
-  cursor: "pointer",
-  "&:hover": {
+  height: '2em',
+  cursor: 'pointer',
+  '&:hover': {
     backgroundColor: theme.palette.background.paper,
-    filter: "brightness(125%)",
+    filter: 'brightness(125%)',
   },
-  "&:active": {
-    filter: "brightness(85%)",
+  '&:active': {
+    filter: 'brightness(85%)',
   },
 }))
 
 export default function GachaSelection(): JSX.Element {
   const gachaTypes = [
     {
-      type: "Normal Gacha",
+      type: 'Normal Gacha',
       icon: <IoCash />,
-      link: "/normalgacha",
+      link: '/normalgacha',
     },
     {
-      type: "Step Up Gacha",
+      type: 'Step Up Gacha',
       icon: <PiStepsFill />,
-      link: "/",
+      link: '/notfound',
     },
     {
-      type: "Lucky Box",
+      type: 'Lucky Box',
       icon: <GiClover />,
-      link: "/",
+      link: '/notfound',
     }
   ];
 
@@ -63,19 +64,21 @@ export default function GachaSelection(): JSX.Element {
     <StyledHeaderContainer>
       <StyledDiv>
         {gachaTypes.map((gachaType) => (
-          <OptionContainer key={gachaType.link}>
-            <a href={gachaType.link}>
+          <Link to={gachaType.link} key={gachaType.link}>
+            <OptionContainer>
               {gachaType.type}
-            </a>
-            {gachaType.icon}
-          </OptionContainer>
+              {gachaType.icon}
+            </OptionContainer>
+          </Link>
         ))}
       </StyledDiv>
       <StyledDiv>
-        <OptionContainer>
-          <a href="/">Settings</a>
-          <IoSettingsSharp />
-        </OptionContainer>
+        <Link to={'/notfound'}>
+          <OptionContainer>
+            Settings
+            <IoSettingsSharp />
+          </OptionContainer>
+        </Link>
       </StyledDiv>
     </StyledHeaderContainer>
   );

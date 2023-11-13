@@ -5,7 +5,7 @@ type Props = {
   name: string
 }
 
-const StyledGachaBanner = styled("div")(({ theme }) => ({
+const StyledGachaBanner = styled('div')(({ theme }) => ({
   backgroundColor: theme.palette.background.paper,
   width: '100%',
   height: '100%',

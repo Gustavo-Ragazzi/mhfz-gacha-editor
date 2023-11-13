@@ -3,6 +3,7 @@ import GachaBanner from '@renderer/components/GachaBanner'
 import { styled } from '@mui/material/styles';
 
 const StyledContainer = styled('div')(({ theme }) => ({
+  margin: 'auto',
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'center',
@@ -10,6 +11,8 @@ const StyledContainer = styled('div')(({ theme }) => ({
 }))
 
 const BiggerBannerContainer = styled('div')({
+  paddingTop: '16px',
+  paddingBottom: '16px',
   width: '100%',
 });
 
@@ -76,7 +79,7 @@ export default function NormalGacha(): JSX.Element {
     return (
       <StyledContainer>
         <BiggerBannerContainer>
-          <GachaBanner 
+          <GachaBanner
             id={0}
             name='Bigger Banner'
           />
