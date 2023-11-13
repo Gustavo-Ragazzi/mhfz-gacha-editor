@@ -73,7 +73,7 @@ export default function GachaSelection(): JSX.Element {
         ))}
       </StyledDiv>
       <StyledDiv>
-        <Link to={'/notfound'}>
+        <Link to={'/settings'}>
           <OptionContainer>
             Settings
             <IoSettingsSharp />
