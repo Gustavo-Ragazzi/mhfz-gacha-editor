@@ -18,7 +18,7 @@ const StyledHeaderContainer = styled('header')(({ theme }) => ({
   },
 }));
 
-const StyledDiv = styled('div')(({ theme }) => ({
+const StyledDiv = styled('div')(() => ({
   display: 'flex',
   flexDirection: 'column',
 }))
@@ -64,7 +64,7 @@ export default function GachaSelection(): JSX.Element {
     <StyledHeaderContainer>
       <StyledDiv>
         {gachaTypes.map((gachaType) => (
-          <Link to={gachaType.link} key={gachaType.link}>
+          <Link to={gachaType.link} key={gachaType.type}>
             <OptionContainer>
               {gachaType.type}
               {gachaType.icon}
